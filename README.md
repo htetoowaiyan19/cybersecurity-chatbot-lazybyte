@@ -9,7 +9,7 @@ An interactive chatbot designed to answer cybersecurity-related questions, raise
 
 ## Frontend Website Access
 
-You can access the website [here](https://htetoowaiyan19.github.io/cybersecurity-chatbot-lazybyte/index.html).
+You can access the website [here](https://htetoowaiyan19.github.io/cybersecurity-chatbot-lazybyte/).
 
 ## 🚀 Features
 
