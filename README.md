@@ -18,8 +18,10 @@ An interactive chatbot designed to answer cybersecurity-related questions, raise
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: [Your backend stack here — e.g., Node.js, Flask]
+- **HTTP and API**: HTTP, REST API, AI Chatbot API
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap
+- **Backend**: PHP, Python
+- **Database**: MySQL
 - **Version Control**: Git + GitHub
 
 ---
