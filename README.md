@@ -30,8 +30,8 @@ An interactive chatbot designed to answer cybersecurity-related questions, raise
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/cybersecurity-chatbot.git
-cd cybersecurity-chatbot
+git clone https://github.com/htetoowaiyan19/cybersecurity-chatbot-lazybyte.git
+cd cybersecurity-chatbot-lazybyte
 
 # (Optional) Install backend dependencies
 npm install  # or pip install -r requirements.txt
