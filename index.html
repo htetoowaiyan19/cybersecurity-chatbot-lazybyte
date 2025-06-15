@@ -1,106 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LazyByte - Cybersecurity Chatbot</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LazyByte - Cybersecurity Chatbot</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
-<style>
-    body
-    {
-        background-color: #000033;
-    }
-    .text
-    {
-        margin: 15px;
-        float: left;
-    }
-    .photo
-    {
-        width: 40%;
-        float: right;
-    }  
-</style>
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-    <div class="navbar navbar-expand-lg navbar-light " style="background-color:hwb(240 1% 72%);">
-        <div class="container-fluid">
-            <p>
-                <i class="bi bi-arrows-fullscreen" style="color: white; font-size: 2rem; margin:auto"></i>
-            </p>
-            <div class="button">
-                <button class="btn btn-dark">Sign Up</button>
-                <button class="btn btn-dark" style="background-color: white; color: black;" data-bs-toggle="modal" data-bs-target="#loginModal">
-                  Login
-                </button>                
-            </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-white" href="#">LazyByte</a>
+      <div class="ms-auto">
+        <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+        <button class="btn btn-light text-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Meet Your Next Cybersecurity AI Agent</h1>
+      <p class="mt-3">Say goodbye to outdated bots. LazyByte defends, supports, and adapts—24/7, at scale.</p>
+      <div class="mt-4">
+        <button class="btn btn-light text-dark me-2" data-bs-toggle="modal" data-bs-target="#signupModal">Get Started</button>
+        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">Try Demo</button>
+      </div>
+      <img src="lazybytebot.png" alt="AI Illustration" class="img-fluid mt-5 rounded shadow-lg" />
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features text-center">
+    <div class="container">
+      <h2 class="mb-5">Why Choose LazyByte?</h2>
+      <div class="row g-5">
+        <div class="col-md-4">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h3>Enterprise Security</h3>
+          <p>End-to-end encrypted. Built to scale with your most sensitive data.</p>
         </div>
-    </div>
-
-    <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px;">
-  
-  <!-- Text on the Left -->
-  <div class="text" style="color: white; flex: 1; padding-right: 20px;">
-    <h1 style="font-family: 'Times New Roman'; font-size: 4rem;" class="mb-3">
-      Outgrown chatbots?<br>
-      It's time for LazyByte AI agent
-    </h1>
-    <p style="font-family: Helvetica; color: rgb(175, 179, 182); font-style: italic;" class="mb-3">
-      Forget everything you knew about chatbots—meet Fin AI agent. Connect 
-      with your customers <br>
-      wherever they are, whenever they contact you, with
-      an AI agent capable of handling your entire frontline support.
-    </p>
-    <button class="btn btn-dark">Sign Up</button>
-    <button class="btn btn-dark" style="background-color: white; color: black;" data-bs-toggle="modal" data-bs-target="#loginModal">
-      Login
-    </button>       
-  </div>
-
-  <!-- Image on the Right -->
-  <div class="photo" style="flex: 1; text-align: right; margin-top: 30px;">
-    <img src="bot.png" alt="photo" style="max-width: 100%; height: 80%; border-radius: 0%;">
-  </div>
-
-</div>
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login to LazyByte</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <!-- Email -->
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
+        <div class="col-md-4">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-robot"></i>
           </div>
-
-          <!-- Password -->
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password">
+          <h3>True AI Understanding</h3>
+          <p>Not just scripted replies—real understanding of intent and context.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-globe2"></i>
           </div>
-
-          <button type="submit" class="btn btn-light w-100 mb-2">Continue</button>
-          <button type="button" class="btn btn-outline-light w-100">Continue with Google</button>
-        </form>
+          <h3>Global Deployment</h3>
+          <p>Deployed across regions. Handle clients from every timezone in seconds.</p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <h2 class="mb-4">Trusted by 1,000+ teams worldwide</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>99.9%</h3>
+          <p>Uptime Guarantee</p>
+        </div>
+        <div class="col-md-4">
+          <h3>24/7</h3>
+          <p>Live AI Availability</p>
+        </div>
+        <div class="col-md-4">
+          <h3>500K+</h3>
+          <p>Threats Neutralized</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      © 2025 LazyByte. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login to LazyByte</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="loginEmail" placeholder="Enter email">
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
+            </div>
+            <button type="submit" class="btn btn-light w-100 mb-2">Continue</button>
+            <button type="button" class="btn btn-outline-light w-100">Continue with Google</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
+  <!-- Sign Up Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalLabel">Create your LazyByte account</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="signupName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="signupName" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+              <label for="signupEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+              <label for="signupPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="signupPassword" placeholder="Create password">
+            </div>
+            <button type="submit" class="btn btn-light w-100 mb-2">Sign Up</button>
+            <button type="button" class="btn btn-outline-light w-100">Continue with Google</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -1,20 +1,121 @@
-.form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 40px;
-    border: 1px solid gray;
-    border-radius: 15px;
-    margin: 40px;
-    background-color: white;
-}
-
 body {
     background-color: #000033;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .navbar {
+    background-color: hwb(240 1% 72%);
+  }
+  
+  .hero {
+    padding: 80px 0;
+    background: linear-gradient(120deg, #000033 0%, #001144 100%);
+    text-align: center;
+  }
+
+  .hero img {
+    width: 400px;
+    height: auto;
+    border-radius: 12px;
 }
 
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: #bbb;
+  }
+  
+  .features {
+    padding: 60px 20px;
+    background-color: #0b0c40;
+  }
+  
+  .features h3 {
+    margin-top: 20px;
+  }
+  
+  .feature-icon {
+    font-size: 3rem;
+    color: #66d9ff;
+  }
+  
+  .stats {
+    padding: 60px 20px;
+    background-color: #0f113f;
+    text-align: center;
+  }
+  
+  .footer {
+    background-color: #010122;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+  }
+
+  /* Modal Styling */
 .modal-content {
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
+    background: linear-gradient(145deg, #0a0a23, #121243);
+    border: 1px solid #2f2f6d;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+    padding: 20px;
+  }
+  
+  .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .modal-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: #00ffff;
+  }
+  
+  .modal-body label {
+    font-weight: 500;
+    color: #b0e0ff;
+  }
+  
+  .modal-body input {
+    background-color: #1d1d3c;
+    border: 1px solid #3f3f88;
+    color: #ffffff;
+  }
+  
+  .modal-body input:focus {
+    background-color: #25254f;
+    border-color: #00ffff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 255, 0.25);
+  }
+  
+  .modal-body .btn-light {
+    background-color: #00ffff;
+    color: #000033;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .modal-body .btn-light:hover {
+    background-color: #00cccc;
+    color: #000;
+  }
+  
+  .modal-body .btn-outline-light {
+    border-color: #00ffff;
+    color: #00ffff;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .modal-body .btn-outline-light:hover {
+    background-color: #00ffff;
+    color: #000033;
+  }
+  
