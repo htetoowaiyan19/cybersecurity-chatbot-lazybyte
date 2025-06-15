@@ -1,0 +1,16 @@
+.form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    margin: 40px;
+    background-color: white;
+}
+body
+{
+    background-color: #000033;
+}
