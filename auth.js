@@ -6,6 +6,23 @@ const supabase = createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkbGF2cmlia2Rhb3p3aW56ZHBhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwODY1NDIsImV4cCI6MjA2NTY2MjU0Mn0.zdu2lOsCW4P5EbgadZ13Y55pTT_Le0YBklG17rlmIgQ'
 );
 
+window.addEventListener('DOMContentLoaded', async () => {
+  const {
+    data: { session }
+  } = await supabase.auth.getSession();
+
+  if (!session) {
+    // Not logged in, redirect to login page
+    window.location.href = 'index.html';
+  } else {
+    // Logged in, get user info
+    const userName = session.user.user_metadata?.name || 'User';
+
+    document.getElementById('userNameDisplay').innerText = userName;
+    document.getElementById('userNameHeading').innerText = userName;
+  }
+});
+
 // LOGIN handler
 document.querySelector('#loginForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -19,7 +36,6 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
   } else {
     // Store user data temporarily in session storage
     const userName = data.user.user_metadata?.name || 'User';
-    sessionStorage.setItem('lazybyte_username', userName);
 
     // Redirect to dashboard
     window.location.href = 'dashboard.html';
