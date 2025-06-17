@@ -24,7 +24,7 @@ You can access the website [here](https://htetoowaiyan19.github.io/cybersecurity
 
 - **HTTP and API**: HTTP, REST API, AI Chatbot API
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
-- **Backend**: PHP, Python
+- **Backend**: Python
 - **Database**: MySQL
 - **Version Control**: Git + GitHub
 
