@@ -1,0 +1,235 @@
+.dashboard-main {
+  padding: 100px 20px;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.2rem;
+  color: #00ffff;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover
+{
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.navbar-nav .nav-link.active {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  background-color: #111145;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.08);
+  padding: 20px;
+  margin-top: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.dashboard-card h5 {
+  color: #00ffff;
+  font-size: 1.25rem;
+}
+
+.dashboard-card p {
+  color: #ccc;
+}
+
+/* ===== Dashboard Page Enhancements ===== */
+main.container.py-5 {
+  max-width: 100%;     /* let Bootstrap handle max-width */
+  padding-top: 100px;  /* match navbar height */
+  margin: 0 auto;
+  text-align: left;
+}
+
+.container.py-5 .text-start  .display-5 {
+  text-align: left;
+}
+
+.card.bg-secondary {
+  background: linear-gradient(145deg, #0a0a23, #121243);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card.bg-secondary:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.35);
+}
+
+.card-title {
+  color: #00ffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.card-text,
+ul.list-unstyled li {
+  color: #ccc;
+  font-weight: 500;
+}
+
+ul.list-unstyled li {
+  margin-bottom: 0.3rem;
+}
+
+.placeholder-text {
+  margin-top: 40px;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #4db8ffaa;
+  text-align: center;
+  user-select: none;
+}
+
+.text-start.mb-5.ps-1.ps-md-3 {
+  text-align: left;
+  margin-left: 0;
+  padding-left: 1rem;
+} 
+
+.about {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 80px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+.about .about-mm .span {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 30px;
+  color: #00ffff;
+}
+
+.about-mm p {
+  margin: 0.5rem 0 1rem;
+  margin: 20% 0 1rem;
+}
+
+.about-text {
+  text-align: left;
+}
+
+.about img {
+  border-radius: 0.5rem;
+  width: 100%;
+  margin: 0;               /* ← Remove margin that causes overflow */
+}
+
+.about-text span{
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #00ffff;
+  font-size: 30px;
+}
+
+.about-text p{
+  margin: 0.5rem 0 1rem;
+}
+
+.customers {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.customers h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+.users-container .box {
+  flex: 1 1 calc(33.333% - 1.5rem);
+  background-color: #010122;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,3);
+  min-width: 280px;
+  max-width: 320px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.users-container .box:hover{
+  transform: translateY(-5px);
+}
+
+@media ( max-width: 992px ){
+  .users-container .box{
+    flex: 1 1 calc(50% - 1.5rem);  /*2 per row */
+  }
+}
+
+@media (max-width: 576px){
+  .users-container .box{
+    flex: 1 1 100%;                /*stack vertically on small screens */
+  }
+}
+
+.users-container .box .bx{
+  font-size: 24px;
+  color: #00ffff
+}
+
+.users-container .box .stars .bx {
+   font-size: 1rem;
+   color: #00ffff;  
+}
+
+.users-container .box p{
+  font-size: 0.938rem;
+}
+
+.review-profile {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  column-gap: 0.5rem;
+}
+
+.review-profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.collapse .navbar-collapse .nav-item {
+  border-radius: auto;
+  color: #00ffff;
+}
