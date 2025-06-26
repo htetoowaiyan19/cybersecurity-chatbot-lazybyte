@@ -1,38 +1,127 @@
+/* Headings inside the terms content */
+.terms-content h1,
+.terms-content h2,
+.terms-content h3,
+.terms-content h4,
+.terms-content h5,
+.terms-content h6 {
+  color: #60b0ff; /* soft bright blue */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 0 5px rgba(96, 176, 255, 0.6);
+}
 
+/* Specific sizes for headings */
+.terms-content h1 {
+  font-size: 2.5rem;
+}
+
+.terms-content h2 {
+  font-size: 2rem;
+}
+
+.terms-content h3 {
+  font-size: 1.6rem;
+}
+
+.terms-content h4 {
+  font-size: 1.3rem;
+}
+
+.terms-content h5 {
+  font-size: 1.1rem;
+}
+
+.terms-content h6 {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Container wrapping navigation and content */
 .terms-container {
   display: flex;
-  height: 90vh;
+  height: 90vh; /* fixed height for layout consistency */
+  width: 100%;
+  margin-top: 60px;
+
   border: 1px solid #444;
   background-color: #0a0a23;
   color: #ddd;
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  width: 100%
+  box-sizing: border-box;
 }
 
+/* Navigation sidebar */
 .terms-nav {
+  width: 300px;
   background-color: #121233;
   border-right: 1px solid #444;
+
+  overflow-y: auto; /* scroll if content exceeds height */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #3fa9f5 #121233; /* thumb and track colors */
 }
 
+/* Remove default ul styling */
 .terms-nav ul {
   list-style: none;
   padding-left: 10px;
+  margin: 0;
 }
 
+/* Navigation list items */
 .terms-nav li {
   cursor: pointer;
-  padding: 8px 0;
+  padding: 8px 12px;
   border-left: 3px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-.terms-nav li:hover, .terms-nav li.active {
-  border-left: 3px solid #3fa9f5;
+/* Hover and active styles for nav items */
+.terms-nav li:hover,
+.terms-nav li.active {
+  border-left-color: #3fa9f5;
   color: #3fa9f5;
+  font-weight: 600;
+  background-color: rgba(63, 169, 245, 0.1);
+  border-radius: 0 6px 6px 0;
 }
 
+/* Content area */
 .terms-content {
   flex: 1;
+  height: 100%;
   padding: 30px;
+
   overflow-y: auto;
   line-height: 1.6;
+  box-sizing: border-box;
+
+  /* Scrollbar colors for Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #3fa9f5 #121233;
+}
+
+/* Scrollbar styles for WebKit browsers */
+.terms-content::-webkit-scrollbar {
+  width: 8px;
+  background: #121233;
+}
+
+.terms-content::-webkit-scrollbar-track {
+  background: #121233;
+}
+
+.terms-content::-webkit-scrollbar-thumb {
+  background-color: #3fa9f5;
+  border-radius: 4px;
+  border: 2px solid #121233;
+  transition: background-color 0.3s ease;
+}
+
+.terms-content::-webkit-scrollbar-thumb:hover {
+  background-color: #60b0ff;
 }

@@ -7,24 +7,6 @@
   margin-bottom: 1rem;
 }
 
-.navbar-nav .nav-link {
-  font-size: 1.2rem;
-  color: #00ffff;
-  font-weight: 600;
-}
-
-.navbar-nav .nav-link:hover
-{
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-.navbar-nav .nav-link.active {
-  color: #ffffff;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
 /* Dashboard Cards */
 .dashboard-card {
   background-color: #111145;
@@ -137,7 +119,7 @@ ul.list-unstyled li {
 .about img {
   border-radius: 0.5rem;
   width: 100%;
-  margin: 0;               /* ← Remove margin that causes overflow */
+  margin: 0;
 }
 
 .about-text span{
@@ -190,13 +172,13 @@ ul.list-unstyled li {
 
 @media ( max-width: 992px ){
   .users-container .box{
-    flex: 1 1 calc(50% - 1.5rem);  /*2 per row */
+    flex: 1 1 calc(50% - 1.5rem);
   }
 }
 
 @media (max-width: 576px){
   .users-container .box{
-    flex: 1 1 100%;                /*stack vertically on small screens */
+    flex: 1 1 100%;
   }
 }
 

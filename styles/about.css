@@ -139,3 +139,9 @@
     align-items: center;
   }
 }
+
+.quote {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+}

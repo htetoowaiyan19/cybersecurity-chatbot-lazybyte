@@ -2,10 +2,26 @@
   padding: 60px 20px;
   background-color: #0b0c40;
 }
+
 .features h3 {
   margin-top: 20px;
 }
+
 .feature-icon {
   font-size: 3rem;
   color: #66d9ff;
+}
+
+.features-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.features-list li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
