@@ -3,37 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms of Service - LazyByte Cybersecuirty AI chatbot</title>
+  <title>Terms of Service - LazyByte Cybersecurity AI Chatbot</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="advanced-terms.css">
+
 </head>
 <body>
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black px-4 py-3 shadow fixed-top">
   <div class="container-fluid">
-    <!-- Brand -->
     <a class="navbar-brand fw-bold text-info" href="#">LazyByte</a>
-
-    <!-- Toggler (for mobile) -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks"
       aria-controls="navbarLinks" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Collapsible Content -->
     <div class="collapse navbar-collapse" id="navbarLinks">
-      <!-- Navigation Links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="dashboard.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="terms.html">Terms</a></li>
+        <li class="nav-item"><a class="nav-link active" href="terms.html">Terms</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Quiz</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Scanning</a></li>
-      </ul>
+        <li class="nav-item"><a class="nav-link" href="">Scanning</a></li>
+         <li class="nav-item"><a class="nav-link" href="aichatbot.html">Get Started with AI</a></li>
 
-      <!-- Account Dropdown (Unchanged) -->
+      </ul>
       <div class="dropdown ms-auto">
         <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="accountDropdown"
            data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,58 +45,93 @@
   </div>
 </nav>
 
-  <div class="container">
-  <h1>Terms of Service</h1>
-  <p>Last Updated: June 23, 2025</p>
+  <div class="terms-container">
+    <nav class="terms-nav" id="termsNav">
+     <ul>
+  <li data-id="1" class="parent-item"><span class="label">1. Introduction</span>
+    <ul>
+      <li data-id="1.1"><span class="label">1.1 Overview</span></li>
+      <li data-id="1.2"><span class="label">1.2 Scope</span></li>
+    </ul>
+  </li>
 
-  <p>Welcome to <strong>LazyByte</strong> — your AI-powered cybersecurity and privacy assistant. These Terms of Service (“Terms”) govern your access to and use of the LazyByte chatbot, website, and any related services (collectively, the “Service”). By accessing or using the Service, you agree to be bound by these Terms. Please read them carefully.</p>
+  <li data-id="2" class="parent-item"><span class="label">2. User Responsibilities</span>
+    <ul>
+      <li data-id="2.1"><span class="label">2.1 Account Security</span></li>
+      <li data-id="2.2"><span class="label">2.2 Acceptable Use</span></li>
+      <li data-id="2.3" class="parent-item"><span class="label">2.3 User Conduct</span>
+        <ul>
+          <li data-id="2.3.1"><span class="label">2.3.1 Harassment</span></li>
+          <li data-id="2.3.2"><span class="label">2.3.2 Illegal Use</span></li>
+          <li data-id="2.3.3"><span class="label">2.3.3 System Abuse</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 
-  <h2>1. Use of Service</h2>
-  <p>LazyByte provides cybersecurity awareness, educational guidance, and privacy information via an AI chatbot interface. You agree to use the Service in compliance with all applicable laws and regulations. The Service is intended solely for lawful purposes and to assist users in improving their understanding of cybersecurity and privacy best practices.</p>
-  <p>The Service is not a substitute for professional advice, audits, or emergency incident response. LazyByte disclaims any liability for decisions made or actions taken based on information provided by the chatbot. You should always consult qualified cybersecurity professionals for critical or high-risk situations.</p>
+  <li data-id="3" class="parent-item"><span class="label">3. AI Behavior and Limitations</span>
+    <ul>
+      <li data-id="3.1"><span class="label">3.1 No Legal Advice</span></li>
+      <li data-id="3.2"><span class="label">3.2 Potential Bias</span></li>
+      <li data-id="3.3"><span class="label">3.3 Data Accuracy</span></li>
+    </ul>
+  </li>
 
-  <h2>2. Privacy & Data</h2>
-  <p>Protecting your privacy is important to us. LazyByte does not collect, store, or share sensitive personal data unless you explicitly consent to provide it, such as during account registration or customer support interactions. We use <a href="https://supabase.io" target="_blank" rel="noopener noreferrer">Supabase</a> for secure authentication and session management.</p>
-  <p>All data transmitted between your device and our servers is encrypted using industry-standard protocols. Your session information and preferences are stored securely and handled in accordance with our <a href="privacy.html">Privacy Policy</a>. We do not sell or rent your data to third parties.</p>
+  <li data-id="4" class="parent-item"><span class="label">4. Privacy Policy Summary</span>
+    <ul>
+      <li data-id="4.1"><span class="label">4.1 Personal Data Collection</span></li>
+      <li data-id="4.2"><span class="label">4.2 Use of Cookies</span></li>
+      <li data-id="4.3"><span class="label">4.3 Third-party Services</span></li>
+      <li data-id="4.4"><span class="label">4.4 User Rights</span></li>
+    </ul>
+  </li>
 
-  <h2>3. Account Responsibility</h2>
-  <p>When you create an account with LazyByte, you are responsible for maintaining the confidentiality of your login credentials and any associated information. You agree to notify us immediately if you suspect any unauthorized use of your account.</p>
-  <p>LazyByte is not responsible for any loss or damage arising from your failure to safeguard your account credentials or from unauthorized access resulting from such failures. You agree to accept responsibility for all activities that occur under your account.</p>
+  <li data-id="5" class="parent-item"><span class="label">5. Termination Policy</span>
+    <ul>
+      <li data-id="5.1"><span class="label">5.1 Grounds for Termination</span></li>
+      <li data-id="5.2"><span class="label">5.2 Process</span></li>
+    </ul>
+  </li>
 
-  <h2>4. AI Limitations</h2>
-  <p>Our AI chatbot is trained to provide helpful and accurate cybersecurity guidance based on the information available at the time of interaction. However, cybersecurity is a rapidly evolving field, and the chatbot’s responses may not always reflect the latest threats or best practices.</p>
-  <p>LazyByte expressly disclaims any warranty that the Service’s information is complete, accurate, or suitable for any particular purpose. You acknowledge and accept that use of the Service is at your own risk, and you should verify critical information independently from trusted sources.</p>
+  <li data-id="6" class="parent-item"><span class="label">6. Intellectual Property</span>
+    <ul>
+      <li data-id="6.1"><span class="label">6.1 Ownership</span></li>
+      <li data-id="6.2"><span class="label">6.2 User Generated Content</span></li>
+      <li data-id="6.3"><span class="label">6.3 Trademarks</span></li>
+    </ul>
+  </li>
 
-  <h2>5. Restrictions</h2>
-  <ul>
-    <li>You may not use the Service to engage in illegal or malicious activities, including but not limited to exploiting security vulnerabilities or launching attacks on networks or systems.</li>
-    <li>Harassment, abusive behavior, hate speech, or threats directed at others through the Service are strictly prohibited.</li>
-    <li>Do not attempt to reverse-engineer, decompile, modify, or disrupt the normal functioning of the Service or its underlying infrastructure.</li>
-    <li>Automated access, data scraping, or using bots to interact with the Service without prior written consent is forbidden.</li>
-  </ul>
+  <li data-id="7" class="parent-item"><span class="label">7. Disclaimers and Limitation of Liability</span>
+    <ul>
+      <li data-id="7.1"><span class="label">7.1 No Warranty</span></li>
+      <li data-id="7.2"><span class="label">7.2 Liability Limit</span></li>
+    </ul>
+  </li>
 
-  <h2>6. Intellectual Property</h2>
-  <p>All content, software, trademarks, logos, and other intellectual property associated with LazyByte and the Service are the property of LazyByte or its licensors. You agree not to reproduce, distribute, create derivative works of, publicly display, or otherwise use any content from the Service without prior written permission.</p>
+  <li data-id="8" class="parent-item"><span class="label">8. Changes to These Terms</span>
+    <ul>
+      <li data-id="8.1"><span class="label">8.1 Notification</span></li>
+      <li data-id="8.2"><span class="label">8.2 Continued Use</span></li>
+    </ul>
+  </li>
 
-  <h2>7. Modifications</h2>
-  <p>LazyByte reserves the right to modify or update these Terms at any time without prior notice. When material changes occur, we will attempt to notify users through the website or via email when applicable. Continued use of the Service after changes constitutes acceptance of the new Terms.</p>
+  <li data-id="9"><span class="label">9. Contact Information</span></li>
+</ul>
 
-  <h2>8. Termination</h2>
-  <p>We may suspend or terminate your access to the Service immediately if you violate these Terms or engage in activities harmful to LazyByte, other users, or third parties. Upon termination, your right to use the Service ceases immediately, and any data stored may be deleted in accordance with our Privacy Policy.</p>
+    </nav>
 
-  <h2>9. Disclaimers & Limitation of Liability</h2>
-  <p>The Service is provided “as is” and “as available,” without warranties of any kind, either express or implied. LazyByte does not guarantee uninterrupted or error-free service.</p>
-  <p>To the maximum extent permitted by law, LazyByte shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service, including data loss, business interruption, or security breaches.</p>
-
-  <h2>10. Governing Law & Dispute Resolution</h2>
-  <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which LazyByte operates, without regard to conflict of law principles.</p>
-  <p>Any disputes arising out of or relating to these Terms or the Service shall be resolved amicably between parties or, failing that, through binding arbitration or in the courts located within our jurisdiction.</p>
-
-  <h2>11. Contact</h2>
-  <p>If you have questions, concerns, or requests regarding these Terms or the Service, please contact us at <a href="mailto:support@lazybyte.tech">support@lazybyte.tech</a>. We value your feedback and aim to respond promptly.</p>
-
-  <p>By continuing to use LazyByte, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service.</p>
+    <section class="terms-content" id="termsContent">
+      <!-- Content loads here -->
+    </section>
 </div>
+<div class="copyright text-center mt-4">
+      <p>© 2025 LazyByte. All rights reserved.</p>
+    </div>
+
+   
+
+ <script src="terms.js"></script>
+  
     <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
@@ -137,5 +168,7 @@
       if (link.getAttribute('href') === currentPage) link.classList.add('active');
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="advanced-terms.js"></script>
 </body>
 </html>
