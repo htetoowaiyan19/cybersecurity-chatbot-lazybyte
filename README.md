@@ -30,6 +30,41 @@ You can access the website [here](https://htetoowaiyan19.github.io/cybersecurity
 
 ---
 
+## 📁 Project Structure
+
+```text
+cybersecurity-chatbot-lazybyte/
+├── HTMLComponents/
+│   ├── footer.html
+│   ├── navbar_loggedin.html
+│   └── navbar_loggedout.html
+├── assets/
+│   └── ... (images/media)
+├── pages/
+│   ├── about/
+│   │   └── index.html
+│   ├── dashboard/
+│   │   └── index.html
+│   ├── login/
+│   │   └── index.html
+│   ├── quiz/
+│   │   └── index.html
+│   └── terms/
+│       └── index.html
+├── scripts/
+│   ├── active-link.js
+│   ├── dashboard.js
+│   └── router.js
+├── styles/
+│   └── ... (CSS files like global.css, terms.css, etc.)
+├── index.html
+├── style.css
+├── LICENSE
+└── README.md
+```
+
+---
+
 ## 📦 Installation
 
 ```bash
@@ -38,4 +73,6 @@ git clone https://github.com/htetoowaiyan19/cybersecurity-chatbot-lazybyte.git
 cd cybersecurity-chatbot-lazybyte
 
 # (Optional) Install backend dependencies
-npm install  # or pip install -r requirements.txt
+npm install  # or pip install -r 
+requirements.txt
+```
