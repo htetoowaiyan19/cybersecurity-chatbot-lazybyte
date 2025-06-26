@@ -116,6 +116,7 @@ async function attachAuthHandlers() {
         await renderNavbar();
 
         window.location.hash = '#dashboard';
+        await renderPage();
       }
     });
   }
