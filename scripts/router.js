@@ -18,6 +18,7 @@ const routes = {
   '#about': () => 'pages/about/',
   '#terms': () => 'pages/terms/',
   '#quiz': () => 'pages/quiz/',
+  '#scan': () => 'pages/scan/',
   '#aichatbot': () => 'pages/aichatbot/',
   '#login': () => 'pages/login/',
   '#signup': () => 'pages/signup/',
