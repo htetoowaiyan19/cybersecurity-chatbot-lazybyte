@@ -1,10 +1,44 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 import { setActiveNavLink } from './active-link.js';
+import { loadQuizModals } from './modalLoader.js';
 
 const supabase = createClient(
   'https://edlavribkdaozwinzdpa.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkbGF2cmlia2Rhb3p3aW56ZHBhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwODY1NDIsImV4cCI6MjA2NTY2MjU0Mn0.zdu2lOsCW4P5EbgadZ13Y55pTT_Le0YBklG17rlmIgQ'
 );
+
+async function syncUserToCustomTable(supabase, user) {
+  try {
+    const { data, error, status } = await supabase
+      .from('users')
+      .select('id')
+      .eq('id', user.id)
+      .single();
+
+    if (error && status !== 406) {
+      console.error('Error checking user in users table:', error);
+      return false;
+    }
+
+    if (!data) {
+      const username = user.user_metadata?.name || user.email;
+
+      const { error: insertError } = await supabase
+        .from('users')
+        .insert([{ id: user.id, username }]);
+
+      if (insertError) {
+        console.error('Error inserting user into users table:', insertError);
+        return false;
+      }
+    }
+
+    return true;
+  } catch (e) {
+    console.error('Exception syncing user:', e);
+    return false;
+  }
+}
 
 let session = null;
 
@@ -34,6 +68,89 @@ async function loadComponent(id, path) {
   }
 }
 
+let pointsSubscription = null;
+
+function subscribeToPoints(userId) {
+  if (pointsSubscription) {
+    supabase.removeChannel(pointsSubscription);
+    pointsSubscription = null;
+  }
+
+  pointsSubscription = supabase
+    .channel('public:users')
+    .on(
+      'postgres_changes',
+      {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'users',
+        filter: `id=eq.${userId}`
+      },
+      (payload) => {
+        const newPoints = payload.new.total_points;
+        const el = document.getElementById('totalPointsDisplay');
+        if (el) el.textContent = `Points: ${newPoints}`;
+      }
+    )
+    .subscribe();
+}
+
+document.addEventListener('points-updated', async () => {
+  if (session && session.user) {
+    await updateTotalPointsDisplay(session.user.id);
+  }
+});
+
+async function displayServerTime(supabase) {
+  const noticeEl = document.getElementById('serverTimeNotice');
+  if (!noticeEl) return;
+
+  try {
+    const { data, error } = await supabase.rpc('get_current_utc_timestamp');
+    if (error || !data) {
+      noticeEl.textContent = "Failed to fetch server time.";
+      return;
+    }
+
+    let serverDate = new Date(data);
+    let lastUpdate = Date.now();
+
+    function updateClock() {
+      const now = Date.now();
+      const diff = now - lastUpdate;
+      const updatedServerTime = new Date(serverDate.getTime() + diff);
+
+      const localDate = updatedServerTime.toLocaleString(undefined, {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+
+      noticeEl.innerHTML = `<strong>Server Time:</strong> ${localDate}`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 100);
+
+  } catch (err) {
+    console.error(err);
+    noticeEl.textContent = "Error loading server time.";
+  }
+}
+
+async function updateTotalPointsDisplay(userId) {
+  const { data, error } = await supabase
+    .from('users')
+    .select('total_points')
+    .eq('id', userId)
+    .single();
+
+  if (!error && data) {
+    const el = document.getElementById('totalPointsDisplay');
+    if (el) el.textContent = `Points: ${data.total_points || 0}`;
+  }
+}
+
 async function renderNavbar() {
   const navbarHTML = session
     ? await fetch('HTMLComponents/navbar_loggedin.html').then(res => res.text())
@@ -46,14 +163,21 @@ async function renderNavbar() {
     const nameSpan = document.getElementById('userNameDisplay');
     if (nameSpan) nameSpan.textContent = name;
 
-    const heading = document.getElementById('userNameHeading');
-    if (heading) heading.textContent = name;
+    const userId = session.user.id;
+    await updateTotalPointsDisplay(userId);
+    subscribeToPoints(userId);
 
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
       logoutBtn.addEventListener('click', async () => {
         await supabase.auth.signOut();
         session = null;
+
+        if (pointsSubscription) {
+          supabase.removeChannel(pointsSubscription);
+          pointsSubscription = null;
+        }
+
         await renderNavbar();
         window.location.hash = '#login';
       });
@@ -92,6 +216,54 @@ function setupModalOpeners() {
   }
 }
 
+function updatePasswordStrength(password) {
+  const strengthBar = document.getElementById('passwordStrengthBar');
+  const strengthText = document.getElementById('passwordStrengthText');
+  let score = 0;
+  if (password.length >= 8) score++;
+  if (password.length >= 12) score++;
+  if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score++;
+  if (/\d/.test(password)) score++;
+  if (/[\W_]/.test(password)) score++;
+
+  let width = (score / 5) * 100;
+  let color = 'bg-danger';
+  let text = 'Weak';
+
+  if (score <= 2) {
+    color = 'bg-danger'; text = 'Weak';
+  } else if (score <= 4) {
+    color = 'bg-warning'; text = 'Medium';
+  } else {
+    color = 'bg-success'; text = 'Strong';
+  }
+
+  strengthBar.style.width = width + '%';
+  strengthBar.className = 'progress-bar ' + color;
+  strengthText.textContent = text;
+}
+
+function checkPasswordMatch() {
+  const password = document.getElementById('signupPassword').value;
+  const confirm = document.getElementById('signupPasswordConfirm').value;
+  const message = document.getElementById('passwordMatchMessage');
+
+  if (!confirm) {
+    message.textContent = '';
+    return false;
+  }
+
+  if (password === confirm) {
+    message.textContent = 'Passwords match ✔️';
+    message.style.color = 'green';
+    return true;
+  } else {
+    message.textContent = 'Passwords do not match ❌';
+    message.style.color = 'red';
+    return false;
+  }
+}
+
 async function attachAuthHandlers() {
   const loginForm = document.querySelector('#loginForm');
   if (loginForm) {
@@ -104,6 +276,11 @@ async function attachAuthHandlers() {
       if (error) {
         alert('Login failed: ' + error.message);
       } else {
+        const synced = await syncUserToCustomTable(supabase, data.session.user);
+        if (!synced) {
+          alert('Warning: Could not sync user data properly.');
+        }
+
         const loginModalEl = document.getElementById('loginModal');
         if (loginModalEl) {
           const modal = bootstrap.Modal.getInstance(loginModalEl);
@@ -152,55 +329,6 @@ async function attachAuthHandlers() {
       }
     });
 
-    // Password strength and matching handlers
-    const updatePasswordStrength = (password) => {
-      const strengthBar = document.getElementById('passwordStrengthBar');
-      const strengthText = document.getElementById('passwordStrengthText');
-      let score = 0;
-      if (password.length >= 8) score++;
-      if (password.length >= 12) score++;
-      if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score++;
-      if (/\d/.test(password)) score++;
-      if (/[\W_]/.test(password)) score++;
-
-      let width = (score / 5) * 100;
-      let color = 'bg-danger';
-      let text = 'Weak';
-
-      if (score <= 2) {
-        color = 'bg-danger'; text = 'Weak';
-      } else if (score <= 4) {
-        color = 'bg-warning'; text = 'Medium';
-      } else {
-        color = 'bg-success'; text = 'Strong';
-      }
-
-      strengthBar.style.width = width + '%';
-      strengthBar.className = 'progress-bar ' + color;
-      strengthText.textContent = text;
-    };
-
-    const checkPasswordMatch = () => {
-      const password = document.getElementById('signupPassword').value;
-      const confirm = document.getElementById('signupPasswordConfirm').value;
-      const message = document.getElementById('passwordMatchMessage');
-
-      if (!confirm) {
-        message.textContent = '';
-        return false;
-      }
-
-      if (password === confirm) {
-        message.textContent = 'Passwords match ✔️';
-        message.style.color = 'green';
-        return true;
-      } else {
-        message.textContent = 'Passwords do not match ❌';
-        message.style.color = 'red';
-        return false;
-      }
-    };
-
     document.getElementById('signupPassword').addEventListener('input', (e) => {
       updatePasswordStrength(e.target.value);
       checkPasswordMatch();
@@ -213,18 +341,14 @@ function attachTermsToggleListeners() {
   const termsNav = document.querySelector('.terms-nav');
   if (!termsNav) return;
 
-  // Initially collapse all nested sublists
   termsNav.querySelectorAll('ul ul').forEach(subUl => {
     subUl.style.display = 'none';
   });
 
-  // Setup toggling behavior on parent items
   termsNav.querySelectorAll('li.parent-item > .label').forEach(label => {
     label.style.cursor = 'pointer';
-
     label.addEventListener('click', () => {
-      const parentLi = label.parentElement;
-      const sublist = parentLi.querySelector('ul');
+      const sublist = label.parentElement.querySelector('ul');
       if (!sublist) return;
 
       const isVisible = sublist.style.display !== 'none';
@@ -274,22 +398,48 @@ function attachTermsScrollSync() {
   termsContent.addEventListener('scroll', onScroll);
 }
 
-// Then, after you load your terms component dynamically:
+function waitForElement(selector, timeout = 2000) {
+  return new Promise((resolve, reject) => {
+    const interval = setInterval(() => {
+      const el = document.querySelector(selector);
+      if (el) {
+        clearInterval(interval);
+        resolve(el);
+      }
+    }, 50);
+    setTimeout(() => {
+      clearInterval(interval);
+      reject(new Error(`Timeout waiting for ${selector}`));
+    }, timeout);
+  });
+}
+
 async function renderPage() {
   const hash = window.location.hash || '#dashboard';
   const pathResolver = routes[hash];
   const path = pathResolver ? pathResolver() : 'pages/login/';
-  await loadComponent('app', path);
 
+  await loadComponent('app', path);
   await attachAuthHandlers();
   setActiveNavLink();
+
+  const { Leaderboard } = await import('./leaderboard.js');
+  const leaderboard = new Leaderboard(supabase);
 
   if (hash === '#terms') {
     attachTermsToggleListeners();
     attachTermsScrollSync();
   }
 
-  if (session && window.location.hash === '#dashboard') {
+  if (hash === '#quiz') {
+    await waitForElement('#dailyQuizBtn');
+    await loadQuizModals();
+    const { QuizApp } = await import('/scripts/quiz.js');
+    const quizApp = new QuizApp(supabase, session);
+    displayServerTime(supabase);
+  }
+
+  if (session && hash === '#dashboard') {
     const heading = document.getElementById('userNameHeading');
     if (heading) heading.textContent = session.user.user_metadata?.name || 'User';
   }

@@ -21,3 +21,8 @@
   text-shadow: 0 0 10px #00ffff;
   font-weight: bold;
 }
+
+#totalPointsDisplay {
+  font-size: 0.9rem;
+  padding-top: 2px;
+}

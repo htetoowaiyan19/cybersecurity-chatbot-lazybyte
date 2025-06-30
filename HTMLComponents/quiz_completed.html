@@ -1,0 +1,28 @@
+<div id="quizCompletedModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-success">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Quiz Completed!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="mb-3">
+          <strong>Total Points Earned:</strong> <span id="quizPointsEarned">0</span>
+        </div>
+        <div class="mb-3">
+          <canvas id="quizSuccessChart" width="150" height="150"></canvas>
+          <div><small><span id="quizCorrectCount">0</span>/10 Correct</small></div>
+        </div>
+        <div class="mb-3">
+          <strong>Time Taken:</strong> <span id="quizTimeTaken">00:00</span>
+        </div>
+        <div class="mb-3 text-muted">
+          <strong>Missed:</strong> <span id="quizPointsMissed">0</span> points
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button class="btn btn-success" data-bs-dismiss="modal">Complete</button>
+      </div>
+    </div>
+  </div>
+</div>

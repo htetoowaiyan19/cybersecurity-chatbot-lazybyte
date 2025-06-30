@@ -1,0 +1,311 @@
+/* LazyByte Cybersecurity Quiz Styles - Modern Theme Aligned */
+
+:root {
+  --primary-accent: #00ffff;
+  --primary-accent-hover: #00cccc;
+  --primary-bg: #000033;
+  --secondary-bg: #0d0d4d;
+  --text-main: #ffffff;
+  --text-muted: #a0a0c0;
+  --danger: #ff4e4e;
+
+  --normal-color: #0d6efd;
+  --hard-color: #ffc107;
+  --extreme-color: #a066e3;
+  --dire-color: #ff4e4e;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-main);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.quiz-page-container {
+  padding-top: 60px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.quiz-container {
+  max-width: 100%;
+  background-color: var(--secondary-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+}
+
+.quiz-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-accent);
+}
+
+/* Mode Buttons */
+.quiz-mode-selection button,
+.quiz-nav .btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid var(--primary-accent);
+  color: var(--primary-accent);
+}
+
+.quiz-mode-selection .btn:hover,
+.quiz-nav .btn:hover {
+  background-color: var(--primary-accent);
+  color: var(--primary-bg);
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 8px var(--primary-accent);
+}
+
+.quiz-mode-selection button.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Difficulty Cards */
+.difficulty-card {
+  border: 2px solid var(--text-muted);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  background-color: transparent;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.difficulty-card h5 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.difficulty-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared button in card */
+.difficulty-card button {
+  margin-top: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  border: 2px solid currentColor;
+  background-color: transparent;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+/* Override button hover color to match card color */
+.normal-diff button:hover:not(.disabled) {
+  background-color: var(--normal-color);
+  color: var(--primary-bg);
+  box-shadow: 0 0 8px var(--normal-color);
+  transform: scale(1.05);
+}
+
+.hard-diff button:hover:not(.disabled) {
+  background-color: var(--hard-color);
+  color: var(--primary-bg);
+  box-shadow: 0 0 8px var(--hard-color);
+  transform: scale(1.05);
+}
+
+.extreme-diff button:hover:not(.disabled) {
+  background-color: var(--extreme-color);
+  color: var(--primary-bg);
+  box-shadow: 0 0 8px var(--extreme-color);
+  transform: scale(1.05);
+}
+
+.dire-diff button:hover:not(.disabled) {
+  background-color: var(--dire-color);
+  color: var(--primary-bg);
+  box-shadow: 0 0 8px var(--dire-color);
+  transform: scale(1.05);
+}
+
+
+/* Hover Effects */
+.difficulty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.25);
+}
+
+/* Border + text color schemes */
+.normal-diff {
+  border-color: var(--normal-color);
+  color: var(--normal-color);
+}
+
+.normal-diff:hover {
+  box-shadow: 0 0 12px var(--normal-color);
+}
+
+.hard-diff {
+  border-color: var(--hard-color);
+  color: var(--hard-color);
+}
+.hard-diff:hover {
+  box-shadow: 0 0 12px var(--hard-color);
+}
+
+.extreme-diff {
+  border-color: var(--extreme-color);
+  color: var(--extreme-color);
+}
+
+.extreme-diff:hover {
+  box-shadow: 0 0 12px var(--extreme-color);
+}
+
+.dire-diff {
+  border-color: var(--dire-color);
+  color: var(--dire-color);
+}
+
+.dire-diff:hover {
+  box-shadow: 0 0 12px var(--dire-color);
+}
+
+/* Quiz Question Area */
+.quiz-question {
+  margin-top: 1.5rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  color: var(--text-main);
+}
+
+.form-check {
+  background-color: #1a1a66;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+  border: 1px solid #333366;
+  transition: background 0.2s ease;
+}
+
+.form-check:hover {
+  background-color: #2a2a7a;
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.form-check-label {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+#timer {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+}
+
+.quiz-nav {
+  margin-top: 2rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 576px) {
+  .quiz-container {
+    padding: 1.5rem;
+  }
+
+  .quiz-nav .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
+
+#challengePointsBox {
+  flex-shrink: 0;
+}
+
+.challenge-point {
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.challenge-point.gray {
+  color: #999;
+}
+
+#challengePointsBox {
+  background-color: #1a1a33; /* Or use var(--secondary-bg) for theme match */
+  color: var(--text-main);
+  border: 2px solid var(--primary-accent);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+}
+
+.challenge-point {
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.challenge-point.gray {
+  color: #777;
+  opacity: 0.6;
+}
+
+.challenge-point .point-icon {
+  font-size: 1.2rem;
+}
+
+.server-timer {
+  text-align: right;
+}
+
+.unlock-msg {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+.leaderboard-section {
+  background-color: var(--secondary-bg);
+  color: var(--text-main);
+  border: 2px solid var(--primary-accent);
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.08);
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.leaderboard-table table {
+  background-color: #1a1a2e;
+  font-size: 0.85rem;
+}
+
+.leaderboard-table th {
+  background-color: var(--primary-accent);
+  color: var(--primary-bg);
+  text-align: left;
+}
+
+.leaderboard-table td {
+  text-align: left;
+  background-color: var(--primary-bg);
+  color: var(--primary-accent);
+}

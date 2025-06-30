@@ -1,27 +1,166 @@
-<main class="quiz-container container my-5">
-    <h1 class="quiz-title text-center mb-4">Cybersecurity Quiz - Placeholder</h1>
+<div class="quiz-page-container my-5">
+  <div class="row">
+    <div class="col-lg-9">
+      <main class="quiz-container h-100">
+        <button id="quizHelpBtn" type="button" class="btn btn-sm btn-outline-info position-fixed" 
+          aria-label="Quiz Help" title="How this quiz works" style="border: 0;">
+          <i class="bi bi-question-circle"></i>
+        </button>
+        <div id="serverTimeNotice" class="server-timer small text-muted">
+          Loading reset schedule...
+        </div>
+        <div id="reset48Notice" class="server-timer small text-muted mb-3">
+          Loading 48-day reset...
+        </div>
+        <h1 class="quiz-title text-center mb-4">Cybersecurity Quiz</h1>
 
-    <div class="quiz-question">
-      <p class="question-text">Question 1: What is phishing?</p>
-      <form id="quizForm">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q1" id="q1a" value="a" />
-          <label class="form-check-label" for="q1a">A type of cyber attack involving deceptive emails.</label>
+        <!-- Quiz Mode Selection -->
+        <div class="quiz-mode-selection text-center mb-5">
+          <button id="dailyQuizBtn" class="btn btn-primary me-3">Daily Quiz</button>
+          <button id="challengeModeBtn" class="btn btn-outline-primary">Challenge Mode</button>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q1" id="q1b" value="b" />
-          <label class="form-check-label" for="q1b">A method of securing data with encryption.</label>
+        
+        <!-- Challenge Difficulty Selection -->
+        <div id="challengeSelection" class="container d-none">
+          <h5 class="mb-4 text-center">Select Challenge Difficulty</h5>
+          <div class="row g-4">
+            <!-- Normal -->
+            <div class="col-md-6 col-lg-3">
+              <div class="difficulty-card normal-diff text-white p-3 rounded h-100">
+                <h5>Normal</h5>
+                <p>- Normal Difficulty</p>
+                <p>- Complete each quiz within 1800s</p>
+                <p>- Obtainable Points: 200</p>          
+                <div class="mt-auto">
+                  <button class="btn btn-light w-100" id="normalBtn" data-difficulty="Normal">Start Normal</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hard -->
+            <div class="col-md-6 col-lg-3">
+              <div class="difficulty-card hard-diff p-3 rounded h-100 d-flex flex-column">
+                <h5>Hard</h5>
+                <p>- Hard Difficulty</p>
+                <p>- Complete each quiz within 600s</p>
+                <p>- Obtainable Points: 400</p>
+
+                <div class="mt-auto">
+                  <small class="unlock-msg" id="hardUnlockMsg">
+                    Complete the Normal Difficulty to unlock
+                  </small>
+                  <button class="btn btn-light w-100 disabled mt-2" id="hardBtn" data-difficulty="Hard">Start Hard</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Extreme -->
+            <div class="col-md-6 col-lg-3">
+              <div class="difficulty-card extreme-diff p-3 rounded h-100 d-flex flex-column">
+                <h5>Extreme</h5>
+                <p>- Extreme Difficulty</p>
+                <p>- Complete each quiz within 300s</p>
+                <p>- Obtainable Points: 800</p>
+
+                <div class="mt-auto">
+                  <small class="unlock-msg" id="extremeUnlockMsg">
+                    Complete the Hard Difficulty to unlock
+                  </small>
+                  <button class="btn btn-light w-100 disabled" id="extremeBtn" data-difficulty="Extreme">Start Extreme</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dire -->
+            <div class="col-md-6 col-lg-3">
+              <div class="difficulty-card dire-diff p-3 rounded h-100 d-flex flex-column">
+                <h5>Dire</h5>
+                <p>- Dire Difficulty</p>
+                <p>- Complete each quiz within 60s</p>
+                <p>- Obtainable Points: 1200</p>
+
+                <div class="mt-auto">
+                  <small class="unlock-msg" id="direUnlockMsg">
+                    Complete the Extreme Difficulty to unlock
+                  </small>
+                  <button class="btn btn-light w-100 disabled" id="legendBtn" data-difficulty="Dire">Start Dire</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q1" id="q1c" value="c" />
-          <label class="form-check-label" for="q1c">A hardware device for network routing.</label>
+
+        <!-- Quiz and Challenge Points Layout -->
+        <div class="row mt-5">
+          <!-- Quiz Section -->
+          <div class="col-md-8">
+            <div id="quizSection" class="quiz-question d-none">
+              <p class="question-text fw-bold">Question <span id="questionNumber">1</span>:</p>
+              <p id="questionText">Loading question...</p>
+
+              <form id="quizForm">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="answer" id="optionA" value="a">
+                  <label class="form-check-label" for="optionA" id="labelA">Option A</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="answer" id="optionB" value="b">
+                  <label class="form-check-label" for="optionB" id="labelB">Option B</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="answer" id="optionC" value="c">
+                  <label class="form-check-label" for="optionC" id="labelC">Option C</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="answer" id="optionD" value="d">
+                  <label class="form-check-label" for="optionD" id="labelD">Option D</label>
+                </div>
+              </form>
+
+              <!-- Timer & Navigation -->
+              <div class="quiz-meta mt-3">
+                <div id="timer" class="text-muted small"></div>
+              </div>
+
+              <div class="quiz-nav d-flex justify-content-between mt-4">
+                <button id="nextBtn" class="btn btn-outline-primary" disabled>Next</button>
+                <button id="submitBtn" class="btn btn-success d-none" disabled>Submit</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Challenge Points Sidebar -->
+          <div class="col-md-4">
+            <aside id="challengePointsBox" class="border p-3 rounded d-none h-100">
+              <h5 id="challengeTitle">Challenge Mode</h5>
+              <div id="challengePointsList" class="fs-6">
+                <!-- Points/time sections will be inserted here dynamically -->
+              </div>
+            </aside>
+          </div>
         </div>
-      </form>
+      </main>
     </div>
 
-    <div class="quiz-nav d-flex justify-content-between mt-4">
-        <button id="prevBtn" class="btn btn-outline-primary" disabled>Previous</button>
-        <button id="nextBtn" class="btn btn-outline-primary">Next</button>
-        <button id="submitBtn" class="btn btn-success d-none">Submit</button>
+    <div class="col-lg-3">
+      <aside class="leaderboard-section p-3 rounded h-100">
+        <h4 class="text-center mb-3">Leaderboard</h4>
+        <!-- Leaderboard Tables -->
+        <div id="pointLeaderboardTable" class="leaderboard-table table-responsive mb-3">
+          <table class="table table-sm table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>User</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody id="pointLeaderboardBody">
+              <!-- Filled by JS -->
+            </tbody>
+          </table>
+        </div>
+      </aside>
     </div>
-</main>
+  </div>
+</div>
