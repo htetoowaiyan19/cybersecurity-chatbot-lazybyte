@@ -81,7 +81,6 @@ export class QuizApp {
 
     const serverTime = new Date(serverTimeData);
 
-    // TimeZone UTC + 6:30
     const offsetMs = 6.5 * 60 * 60 * 1000;
     const localTime = new Date(serverTime.getTime() + offsetMs);
 
@@ -171,12 +170,13 @@ export class QuizApp {
 
     const submittedToday = await this.hasSubmittedDailyToday();
 
-    if (cooldownMs <= 0 && !submittedToday) {
+    if (!submittedToday) {
+      // Never submitted or reset passed — let them in!
       this.dailyBtn.disabled = false;
       this.dailyBtn.classList.remove('disabled');
       this.dailyBtn.textContent = 'Start Daily Quiz';
-      console.log('Daily quiz button enabled (not submitted and time passed)');
-    } else {
+    } else if (cooldownMs > 0) {
+      // Submitted today, cooldown still running
       this.dailyBtn.disabled = true;
       this.dailyBtn.classList.add('disabled');
       this.updateCooldownText(cooldownMs);
@@ -184,7 +184,6 @@ export class QuizApp {
       this.dailyCooldownTimer = setInterval(async () => {
         const { data: serverTimeUpdate } = await this.supabase.rpc('get_current_utc_timestamp');
         const currentTime = serverTimeUpdate ? new Date(serverTimeUpdate) : new Date();
-
         const diff = nextResetUTC - currentTime;
 
         const submitted = await this.hasSubmittedDailyToday();
@@ -194,7 +193,6 @@ export class QuizApp {
           this.dailyBtn.disabled = false;
           this.dailyBtn.classList.remove('disabled');
           this.dailyBtn.textContent = 'Start Daily Quiz';
-          console.log('Cooldown expired and daily not submitted, enabled.');
         } else {
           this.updateCooldownText(diff);
         }

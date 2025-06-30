@@ -18,6 +18,7 @@ export class Leaderboard {
     const { data, error } = await this.supabase
       .from('users')
       .select('username, total_points, created_at')
+      .gt('total_points', 0)
       .order('total_points', { ascending: false })
       .limit(100);
 
