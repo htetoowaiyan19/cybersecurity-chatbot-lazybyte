@@ -704,7 +704,7 @@ export class QuizApp {
       modal.show();
     } else {
       // Load the HTML and insert into the body
-      fetch('../HTMLComponents/quiz_help.html')
+      fetch('HTMLComponents/quiz_help.html')
         .then(res => res.text())
         .then(html => {
           document.body.insertAdjacentHTML('beforeend', html);
