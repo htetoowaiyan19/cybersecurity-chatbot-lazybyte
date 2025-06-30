@@ -433,15 +433,11 @@ export class QuizApp {
     const duration = Math.floor((now - this.questionStartTime) / 1000);
     this.questionDurations[this.currentQuestionIndex] = duration;
 
-    const alreadySubmitted = await this.hasCompletedThisWeek();
-    const score = this.calculateScore();
-    console.log('Calculating points with:', {
-      mode: this.mode,
-      difficulty: this.difficulty,
-      durations: this.questionDurations,
-      answers: this.answers
-    });
+    const alreadySubmitted = this.mode === 'challenge'
+      ? await this.hasCompletedDifficultyThisWeek(this.difficulty)
+      : await this.hasSubmittedDailyToday();
 
+    const score = this.calculateScore();
     const points = alreadySubmitted ? 0 : this.getPoints();
     const timeTaken = Object.values(this.questionDurations).reduce((a, b) => a + b, 0);
     const percentage = Math.round((score / this.quizData.length) * 100);
@@ -458,23 +454,21 @@ export class QuizApp {
       };
       const maxPoints = maxPointsByDifficulty[this.difficulty] || 0;
       missed = maxPoints - points;
-    } else {
-      missed = undefined;
-    }
-
-    const { error: insertError } = await this.supabase.from('quiz_submissions').insert([{
-      user_id: this.userId,
-      quiz_type: this.mode,
-      difficulty: this.difficulty,
-      score: points,
-    }]);
-
-    if (insertError) {
-      alert('Failed to submit quiz results: ' + insertError.message);
-      return;
     }
 
     if (!alreadySubmitted) {
+      const { error: insertError } = await this.supabase.from('quiz_submissions').insert([{
+        user_id: this.userId,
+        quiz_type: this.mode,
+        difficulty: this.difficulty,
+        score: points,
+      }]);
+
+      if (insertError) {
+        alert('Failed to submit quiz results: ' + insertError.message);
+        return;
+      }
+
       const { error: rpcError } = await this.supabase.rpc('increment_user_points', {
         uid: this.userId,
         pts: points,
@@ -484,6 +478,10 @@ export class QuizApp {
         alert('Failed to update user total points: ' + rpcError.message);
         return;
       }
+
+      console.log('Points submitted and updated.');
+    } else {
+      console.log('Challenge already completed. No data submitted.');
     }
 
     document.dispatchEvent(new CustomEvent('points-updated'));
