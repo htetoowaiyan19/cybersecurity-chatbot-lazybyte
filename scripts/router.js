@@ -434,7 +434,7 @@ async function renderPage() {
   if (hash === '#quiz') {
     await waitForElement('#dailyQuizBtn');
     await loadQuizModals();
-    const { QuizApp } = await import('/scripts/quiz.js');
+    const { QuizApp } = await import('./quiz.js');
     const quizApp = new QuizApp(supabase, session);
     displayServerTime(supabase);
   }
