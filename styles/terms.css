@@ -1,127 +1,125 @@
-/* Headings inside the terms content */
-.terms-content h1,
-.terms-content h2,
-.terms-content h3,
-.terms-content h4,
-.terms-content h5,
-.terms-content h6 {
-  color: #60b0ff; /* soft bright blue */
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  font-weight: 700;
-  line-height: 1.2;
-  text-shadow: 0 0 5px rgba(96, 176, 255, 0.6);
-}
 
-/* Specific sizes for headings */
-.terms-content h1 {
-  font-size: 2.5rem;
-}
-
-.terms-content h2 {
-  font-size: 2rem;
-}
-
-.terms-content h3 {
-  font-size: 1.6rem;
-}
-
-.terms-content h4 {
-  font-size: 1.3rem;
-}
-
-.terms-content h5 {
-  font-size: 1.1rem;
-}
-
-.terms-content h6 {
-  font-size: 1rem;
-  font-style: italic;
-}
-
-/* Container wrapping navigation and content */
-.terms-container {
-  display: flex;
-  height: 90vh; /* fixed height for layout consistency */
+/* Main wrapper for terms */
+/* Main Wrapper for Terms Page */
+.terms-wrapper {
+  max-width: 100%;
   width: 100%;
-  margin-top: 60px;
-
-  border: 1px solid #444;
-  background-color: #0a0a23;
-  color: #ddd;
-
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 10vw;
   box-sizing: border-box;
+  background: white;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  color: #222;
 }
 
-/* Navigation sidebar */
-.terms-nav {
-  width: 300px;
-  background-color: #121233;
-  border-right: 1px solid #444;
-
-  overflow-y: auto; /* scroll if content exceeds height */
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #3fa9f5 #121233; /* thumb and track colors */
+/* Page Title */
+.terms-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+  text-align: center;
 }
 
-/* Remove default ul styling */
-.terms-nav ul {
-  list-style: none;
-  padding-left: 10px;
-  margin: 0;
+/* Section Heading */
+.terms-heading {
+  font-size: 1.5rem;
+  color: #1a73e8;
+  margin-top: 2rem;
 }
 
-/* Navigation list items */
-.terms-nav li {
-  cursor: pointer;
-  padding: 8px 12px;
-  border-left: 3px solid transparent;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Hover and active styles for nav items */
-.terms-nav li:hover,
-.terms-nav li.active {
-  border-left-color: #3fa9f5;
-  color: #3fa9f5;
-  font-weight: 600;
-  background-color: rgba(63, 169, 245, 0.1);
-  border-radius: 0 6px 6px 0;
-}
-
-/* Content area */
-.terms-content {
-  flex: 1;
-  height: 100%;
-  padding: 30px;
-
-  overflow-y: auto;
+/* Terms Paragraph Text */
+.terms-paragraph {
+  font-size: 1rem;
   line-height: 1.6;
-  box-sizing: border-box;
-
-  /* Scrollbar colors for Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: #3fa9f5 #121233;
+  margin-bottom: 1rem;
 }
 
-/* Scrollbar styles for WebKit browsers */
-.terms-content::-webkit-scrollbar {
-  width: 8px;
-  background: #121233;
+/* Terms List Items */
+.terms-list {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-left: 1.5rem;
+  list-style-type: disc;
 }
 
-.terms-content::-webkit-scrollbar-track {
-  background: #121233;
+/* Terms Link */
+.terms-link {
+  color: #1a73e8;
+  text-decoration: none;
 }
 
-.terms-content::-webkit-scrollbar-thumb {
-  background-color: #3fa9f5;
-  border-radius: 4px;
-  border: 2px solid #121233;
-  transition: background-color 0.3s ease;
+.terms-link:hover {
+  text-decoration: underline;
 }
 
-.terms-content::-webkit-scrollbar-thumb:hover {
-  background-color: #60b0ff;
+
+/* Circle image */
+
+.vertical-feature-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the entire block */
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.vertical-feature-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(63, 169, 245, 0.15);
+  width: 100%;
+}
+
+.circle-image {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #0f0f84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(96, 176, 255, 0.4);
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Divider line between image and text */
+.divider-line {
+  width: 2px;
+  height: 60px;
+  background-color: #1980c9;
+  margin: 0 20px;
+  opacity: 0.6;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-text h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #074f98;
+}
+
+.feature-text p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: #033253;
+}
+.feature-text .color {
+  color: #033253;
+  font-size: 18px;
 }

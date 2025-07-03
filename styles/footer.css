@@ -1,72 +1,83 @@
-.footer
-{
-  padding-top: 10px;
-  background-color: #0b0c40;
-  border-top: 1px solid #444;
-  color: white;
+.footer {
+  background-color: #060f45;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.dash-footer
-{
+.footer-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 200px;
-  min-width: 200px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+  justify-content: space-between;
 }
 
-.categories ul li
-{
-  color: white;
+.footer-column {
+  flex: 1 1 250px;
+  min-width: 220px;
 }
 
-.social-icons {
-  display: flex;
-  
-  margin-top: 1rem;
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #3a3a3a;
+  padding-bottom: 5px;
 }
 
-.social-icon {
-  font-size: 1.5rem;
-  color: #a8bfc9;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  text-align: left;
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.social-icon:hover {
-  color: #00c2b8;
-}
-
-.suggestion-box form {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.suggestion-box input[type="text"] {
-  flex-grow: 1;
-  padding: 0.5rem;
-  border: 1px solid #00c2b8;
-  border-radius: 4px;
-  background-color: transparent;
-  color: #a8bfc9;
-}
-
-.suggestion-box input[type="text"]::placeholder {
-  color: #5f7a8a;
-}
-
-.suggestion-box button {
-  background-color: #00c2b8;
-  border: none;
-  color: #071930;
-  padding: 0 1rem;
-  border-radius: 4px;
+.footer-column ul li {
+  margin: 8px 0;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: color 0.3s;
 }
 
-.suggestion-box button:hover {
-  background-color: #008e84;
+.footer-column ul li:hover {
+  color: #1e90ff;
+}
+
+.footer-column p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.footer-column a {
+  color: #88c0ff;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a img {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  margin-top: 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #3a3a3a;
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #aaaaaa;
+
+}
+.footer-bottom p {
+    margin-top: 30px;
 }

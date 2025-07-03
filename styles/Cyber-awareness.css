@@ -1,0 +1,130 @@
+/* Video Section Styling */
+.video-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Styling */
+.video-header h2 {
+  font-size: 2rem;
+  color: #2b2b2b;
+  margin-bottom: 0.5rem;
+}
+
+.video-header p {
+  color: #666;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* Video Wrapper */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Video Element Styling */
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .video-section {
+    padding: 1.5rem;
+  }
+
+  .video-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .video-header p {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+/*Script */
+
+.video-script {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.video-script h3 {
+  text-align: center;
+  color: #0d6efd;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.script-block {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.script-text {
+  flex: 1 1 45%;
+  background: #f8f9fa;
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.script-text:hover {
+  transform: translateY(-4px);
+}
+
+.script-text h4 {
+  font-size: 1.3rem;
+  color: #0dcaf0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #0dcaf0;
+  padding-bottom: 0.4rem;
+}
+
+.script-text p {
+  font-size: 1.05rem;
+  color: #2b2b2b;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+@media (max-width: 768px) {
+  .script-block {
+    flex-direction: column;
+  }
+
+  .script-text {
+    width: 100%;
+  }
+
+  .video-script h3 {
+    font-size: 1.5rem;
+  }
+}

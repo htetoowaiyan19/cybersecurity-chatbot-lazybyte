@@ -56,6 +56,14 @@ const routes = {
   '#aichatbot': () => 'pages/aichatbot/',
   '#login': () => 'pages/login/',
   '#signup': () => 'pages/signup/',
+  '#contact': () => 'pages/contact/',
+  '#Who-we-are': () => 'pages/Who-we-are',
+  '#What-we-Do': ()=> 'pages/What-we-Do',
+  '#Our-mission': ()=>'pages/Our-mission',
+  '#FAQ':() =>'pages/FAQ',
+  '#Scan-awareness':()=>'pages/Scan-awareness',
+  '#Cyber-awareness':()=>'pages/Cyber-awareness',
+  '#User-awareness':()=>'pages/User-awareness',
 };
 
 async function loadComponent(id, path) {

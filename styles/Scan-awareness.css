@@ -1,0 +1,108 @@
+/* Header Image */
+.sub-header {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.header-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.overlay-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.overlay-content p {
+  font-size: 1.2rem;
+}
+
+/* Image Pair Section */
+.image-pair-section {
+  padding: 5rem 2rem;
+  background: #f9fbff;
+  border-bottom: 1px solid #e5eaf0;
+}
+
+.image-pair {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.image-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.image-box:hover {
+  transform: translateY(-5px);
+}
+
+.image-box img:hover {
+  transform: scale(1.03);
+}
+
+.image-label {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #2c2c2c;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .image-box {
+    max-width: 100%;
+  }
+
+  .image-pair {
+    gap: 2rem;
+  }
+
+  .image-label {
+    font-size: 1rem;
+  }
+}
+
+.title-small-black {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.4;
+  background-color: white;
+  margin: 0%;
+  
+}
+
+.text-red-color {
+  color: #e63946;
+}

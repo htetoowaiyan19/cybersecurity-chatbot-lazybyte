@@ -2,7 +2,6 @@
   background-color: hwb(240 1% 72%);
   border-bottom: 1px solid #222252;
 }
-
 .navbar-brand {
   font-size: 1.5rem;
   color: #00ffff !important;
@@ -21,8 +20,11 @@
   text-shadow: 0 0 10px #00ffff;
   font-weight: bold;
 }
+.dropdown-menu .dropdown-item {
+   color: #0dcaf0;
+}
 
-#totalPointsDisplay {
-  font-size: 0.9rem;
-  padding-top: 2px;
+.dropdown-menu .dropdown-item:hover{
+  background-color: #0d6efd;
+  color: #ffffff;
 }

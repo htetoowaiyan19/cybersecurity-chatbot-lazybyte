@@ -1,0 +1,84 @@
+/* Contact Section Background */
+.contact-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(10, 25, 47, 0.95));
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+  padding: 60px 20px;
+  border-top: 1px solid #0dcaf0;
+  margin-top: 7px;
+}
+
+/* Headings */
+.contact-section h2 {
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: #0dcaf0;
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs and Textareas */
+.contact-section input,
+.contact-section textarea {
+  background-color: #0e1b31;
+  border: 1px solid #0dcaf0;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+  color: #a0b3d6;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  border-color: #66fcf1;
+  outline: none;
+  box-shadow: 0 0 8px #0dcaf0;
+}
+
+/* Glowing Button */
+.glow-button {
+  background-color: #0dcaf0;
+  color: #000;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #0dcaf0, 0 0 20px #0dcaf0;
+  transition: all 0.3s ease-in-out;
+}
+
+.glow-button:hover {
+  background-color: #1f6feb;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #66fcf1, 0 0 30px #66fcf1;
+}
+
+/* Right Side Contact Info Box */
+.contact-section .bg-dark {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  border-left: 2px solid #0dcaf0;
+  border-radius: 12px;
+}
+
+.contact-section a {
+  color: #0dcaf0;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  color: #66fcf1;
+  text-decoration: underline;
+}
+
+/* Social Icons Hover Effect */
+.contact-section img {
+  transition: transform 0.3s ease;
+}
+
+.contact-section img:hover {
+  transform: scale(1.1);
+}
