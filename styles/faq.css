@@ -1,6 +1,6 @@
 /* Main Section Styling */
 .info-section {
-  background: #f6f8fc;
+  background: #000033;
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 4rem auto;
@@ -12,7 +12,7 @@
 .info-title {
   text-align: center;
   font-size: 2.5rem;
-  color: #2b2b2b;
+  color: #e0e0e0;
   margin-bottom: 3rem;
   font-weight: 700;
 }
@@ -81,7 +81,7 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.5rem;
-  color: #666;
+  color: #000033;
   transition: transform 0.3s ease;
 }
 
