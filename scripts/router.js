@@ -51,6 +51,8 @@ const routes = {
   '#dashboard': () => session ? 'pages/dashboard/' : 'pages/login/',
   '#about': () => 'pages/about/',
   '#terms': () => 'pages/terms/',
+  '#Privacy-policy': () =>'pages/Privacy-policy',
+  '#license': () => 'pages/license',
   '#quiz': () => 'pages/quiz/',
   '#scan': () => 'pages/scan/',
   '#aichatbot': () => 'pages/aichatbot/',
@@ -64,6 +66,8 @@ const routes = {
   '#Scan-awareness':()=>'pages/Scan-awareness',
   '#Cyber-awareness':()=>'pages/Cyber-awareness',
   '#User-awareness':()=>'pages/User-awareness',
+  '#cyber-attack':()=>'pages/cyber-attack',
+  
 };
 
 async function loadComponent(id, path) {

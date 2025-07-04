@@ -9,7 +9,7 @@
   background: white;
   min-height: 100vh;
   font-family: "Segoe UI", sans-serif;
-  color: #222;
+  color: #000033;
 }
 
 /* Page Title */
@@ -22,21 +22,25 @@
   text-align: center;
 }
 
-/* Section Heading */
+/* Section Heading (Main Sections like 1, 2, 3) */
 .terms-heading {
   font-size: 1.5rem;
-  color: #1a73e8;
+  color: #205ba8;
   margin-top: 2rem;
 }
-
-/* Terms Paragraph Text */
+.terms-subheading {
+  font-size: 1rem;
+  color: #0861a0;
+  margin-top: 1.5rem;
+}
+/* Paragraphs */
 .terms-paragraph {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
 
-/* Terms List Items */
+/* List Items */
 .terms-list {
   font-size: 1rem;
   line-height: 1.6;
@@ -44,7 +48,7 @@
   list-style-type: disc;
 }
 
-/* Terms Link */
+/* Links */
 .terms-link {
   color: #1a73e8;
   text-decoration: none;
@@ -55,71 +59,71 @@
 }
 
 
-/* Circle image */
-
-.vertical-feature-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the entire block */
-  gap: 30px;
-  margin: 40px auto;
-  max-width: 800px;
-}
-
-.vertical-feature-item {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(63, 169, 245, 0.15);
+/* Table content */
+.data-law-table {
   width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  font-size: 1rem;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
 }
 
-.circle-image {
-  width: 80px;
-  height: 80px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #0f0f84;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 8px rgba(96, 176, 255, 0.4);
+.data-law-table th,
+.data-law-table td {
+  border: 1px solid #ccc;
+  padding: 12px 16px;
 }
 
-.circle-image img {
+.data-law-table th {
+  background-color: #f2f2f2;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.data-law-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Data protection law in Aisa */
+
+.data-protection-table {
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.data-protection-table h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.data-protection-table table {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Divider line between image and text */
-.divider-line {
-  width: 2px;
-  height: 60px;
-  background-color: #1980c9;
-  margin: 0 20px;
-  opacity: 0.6;
-}
-
-.feature-text {
-  flex: 1;
-}
-
-.feature-text h4 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #074f98;
-}
-
-.feature-text p {
-  margin: 5px 0 0;
+  border-collapse: collapse;
+  font-family: "Segoe UI", sans-serif;
   font-size: 0.95rem;
-  color: #033253;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
-.feature-text .color {
-  color: #033253;
-  font-size: 18px;
+
+.data-protection-table th,
+.data-protection-table td {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.data-protection-table th {
+  background-color: #1a73e8;
+  color: white;
+  font-weight: 600;
+}
+
+.data-protection-table tbody tr:nth-child(even) {
+  background-color: #f1f3f5;
 }

@@ -1,0 +1,60 @@
+.cyber-attack-section {
+  background: #000033;
+  padding: 60px 20px;
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #1a73e8;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.attack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.attack-card {
+  background: #ffffff;
+  border: 1px solid #e0e6ed;
+  border-radius: 12px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: 0.3s ease all;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.attack-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.attack-icon {
+  font-size: 2.5rem;
+  color: #1a73e8;
+  margin-bottom: 15px;
+}
+
+.attack-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.attack-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
