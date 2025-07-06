@@ -491,7 +491,8 @@ async function renderApp() {
   await loadComponent('modal-container', 'HTMLComponents/auth_models.html');
   await loadComponent('footer', 'HTMLComponents/footer.html');
   await renderPage();
-  bindModalButtons();
+  
+  setupModalDelegation();
 
   document.addEventListener('hidden.bs.modal', () => {
     document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
@@ -500,27 +501,25 @@ async function renderApp() {
   });
 }
 
-function bindModalButtons() {
+function setupModalDelegation() {
   const loginModalEl = document.getElementById('loginModal');
   const signupModalEl = document.getElementById('signupModal');
 
   const loginModal = loginModalEl ? new bootstrap.Modal(loginModalEl) : null;
   const signupModal = signupModalEl ? new bootstrap.Modal(signupModalEl) : null;
 
-  document.querySelectorAll('#openLoginModal').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  document.body.addEventListener('click', (e) => {
+    if (e.target.closest('.openLoginModal')) {
       e.preventDefault();
       loginModal?.show();
-    });
-  });
-
-  document.querySelectorAll('#openSignupModal').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    }
+    if (e.target.closest('.openSignupModal')) {
       e.preventDefault();
       signupModal?.show();
-    });
+    }
   });
 }
+
 
 window.addEventListener('DOMContentLoaded', renderApp);
 window.addEventListener('hashchange', renderPage);
