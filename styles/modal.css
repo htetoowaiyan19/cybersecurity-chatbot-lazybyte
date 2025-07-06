@@ -56,12 +56,12 @@
   color: #000033;
 }
 
-.modal-backdrop {
-  z-index: 1040 !important;
-}
-
 .modal {
   z-index: 1050 !important;
+}
+
+.modal-backdrop {
+  z-index: 1040 !important;
 }
 
 #quizHelpModal .modal-content {

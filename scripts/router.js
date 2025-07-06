@@ -201,27 +201,50 @@ async function renderNavbar() {
 }
 
 function setupModalOpeners() {
-  const loginLink = document.getElementById('openLoginModal');
-  const signupLink = document.getElementById('openSignupModal');
+  const loginModalEl = document.getElementById('loginModal');
+  const signupModalEl = document.getElementById('signupModal');
 
+  const loginModal = loginModalEl ? new bootstrap.Modal(loginModalEl) : null;
+  const signupModal = signupModalEl ? new bootstrap.Modal(signupModalEl) : null;
+
+  // Track open state
+  let loginModalOpen = false;
+  let signupModalOpen = false;
+
+  if (loginModalEl) {
+    loginModalEl.addEventListener('shown.bs.modal', () => {
+      loginModalOpen = true;
+    });
+    loginModalEl.addEventListener('hidden.bs.modal', () => {
+      loginModalOpen = false;
+    });
+  }
+
+  if (signupModalEl) {
+    signupModalEl.addEventListener('shown.bs.modal', () => {
+      signupModalOpen = true;
+    });
+    signupModalEl.addEventListener('hidden.bs.modal', () => {
+      signupModalOpen = false;
+    });
+  }
+
+  const loginLink = document.getElementById('openLoginModal');
   if (loginLink) {
     loginLink.addEventListener('click', (e) => {
       e.preventDefault();
-      const loginModalEl = document.getElementById('loginModal');
-      if (loginModalEl) {
-        const modal = new bootstrap.Modal(loginModalEl);
-        modal.show();
+      if (loginModal && !loginModalOpen) {
+        loginModal.show();
       }
     });
   }
 
+  const signupLink = document.getElementById('openSignupModal');
   if (signupLink) {
     signupLink.addEventListener('click', (e) => {
       e.preventDefault();
-      const signupModalEl = document.getElementById('signupModal');
-      if (signupModalEl) {
-        const modal = new bootstrap.Modal(signupModalEl);
-        modal.show();
+      if (signupModal && !signupModalOpen) {
+        signupModal.show();
       }
     });
   }
