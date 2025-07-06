@@ -55,3 +55,27 @@
   background-color: #00ffff;
   color: #000033;
 }
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+.modal {
+  z-index: 1050 !important;
+}
+
+#quizHelpModal .modal-content {
+  max-width: none !important; /* Remove max-width limit */
+  width: 100%;                /* Fill dialog width */
+  background: linear-gradient(145deg, #0a0a23, #121243); /* Your styling */
+  border: 1px solid #2f2f6d;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+  padding: 20px;
+  color: white; /* ensure text visible */
+}
+
+#quizHelpModal .modal-dialog {
+  max-width: 800px !important;
+  width: 90% !important;
+}

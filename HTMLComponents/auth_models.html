@@ -1,0 +1,61 @@
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login to LazyByte</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label"  style="text-align: right;">Email address</label>
+                        <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label" style="text-align: right;">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter password" required />
+                    </div>
+                    <button type="submit" class="btn btn-light w-100 mb-2">Continue</button>
+                    <button type="button" class="btn btn-outline-light w-100">Continue with Google</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signupModalLabel">Create your LazyByte account</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="signupForm">
+                    <div class="mb-3">
+                        <label for="signupName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="signupName" placeholder="Enter your name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signupPassword" placeholder="Create password" required />
+                        <div class="progress mt-2" style="height: 6px;">
+                            <div id="passwordStrengthBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <small id="passwordStrengthText" class="form-text"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupPasswordConfirm" class="form-label">Re-enter Password</label>
+                        <input type="password" class="form-control" id="signupPasswordConfirm" placeholder="Confirm password" required />
+                        <div id="passwordMatchMessage" class="form-text"></div>
+                    </div>
+                    <button type="submit" class="btn btn-light w-100 mb-2">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

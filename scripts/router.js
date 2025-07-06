@@ -197,7 +197,6 @@ async function renderNavbar() {
   } else {
     setupModalOpeners();
   }
-
   setActiveNavLink();
 }
 
@@ -436,7 +435,11 @@ async function renderPage() {
   setActiveNavLink();
 
   const { Leaderboard } = await import('./leaderboard.js');
-  const leaderboard = new Leaderboard(supabase);
+
+  if (document.getElementById('pointLeaderboardBody')) {
+    const leaderboard = new Leaderboard(supabase);
+  }
+
 
   if (hash === '#terms') {
     attachTermsToggleListeners();
@@ -455,13 +458,45 @@ async function renderPage() {
     const heading = document.getElementById('userNameHeading');
     if (heading) heading.textContent = session.user.user_metadata?.name || 'User';
   }
+
+  setupModalOpeners();
 }
 
 async function renderApp() {
   await checkSession();
   await renderNavbar();
+  await loadComponent('modal-container', 'HTMLComponents/auth_models.html');
   await loadComponent('footer', 'HTMLComponents/footer.html');
   await renderPage();
+  bindModalButtons();
+
+  document.addEventListener('hidden.bs.modal', () => {
+    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+  });
+}
+
+function bindModalButtons() {
+  const loginModalEl = document.getElementById('loginModal');
+  const signupModalEl = document.getElementById('signupModal');
+
+  const loginModal = loginModalEl ? new bootstrap.Modal(loginModalEl) : null;
+  const signupModal = signupModalEl ? new bootstrap.Modal(signupModalEl) : null;
+
+  document.querySelectorAll('#openLoginModal').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginModal?.show();
+    });
+  });
+
+  document.querySelectorAll('#openSignupModal').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      signupModal?.show();
+    });
+  });
 }
 
 window.addEventListener('DOMContentLoaded', renderApp);
