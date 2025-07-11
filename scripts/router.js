@@ -1,6 +1,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 import { setActiveNavLink } from './active-link.js';
 import { loadQuizModals } from './modalLoader.js';
+import { initAccountSettings } from './account_settings.js';
 
 const supabase = createClient(
   'https://edlavribkdaozwinzdpa.supabase.co',
@@ -203,13 +204,16 @@ async function renderNavbar() {
 function setupModalOpeners() {
   const loginModalEl = document.getElementById('loginModal');
   const signupModalEl = document.getElementById('signupModal');
+  const accountSettingsModalEl = document.getElementById('accountSettingsModal');
 
   const loginModal = loginModalEl ? new bootstrap.Modal(loginModalEl) : null;
   const signupModal = signupModalEl ? new bootstrap.Modal(signupModalEl) : null;
+  const accountSettingsModal = accountSettingsModalEl ? new bootstrap.Modal(accountSettingsModalEl) : null;
 
   // Track open state
   let loginModalOpen = false;
   let signupModalOpen = false;
+  let accountSettingsModalOpen = false;
 
   if (loginModalEl) {
     loginModalEl.addEventListener('shown.bs.modal', () => {
@@ -226,6 +230,15 @@ function setupModalOpeners() {
     });
     signupModalEl.addEventListener('hidden.bs.modal', () => {
       signupModalOpen = false;
+    });
+  }
+
+  if (accountSettingsModalEl) {
+    accountSettingsModalEl.addEventListener('shown.bs.modal', () => {
+      accountSettingsModalOpen = true;
+    });
+    accountSettingsModalEl.addEventListener('hidden.bs.modal', () => {
+      accountSettingsModalOpen = false;
     });
   }
 
@@ -247,6 +260,16 @@ function setupModalOpeners() {
         signupModal.show();
       }
     });
+  }
+
+  const accountSettingsLink = document.getElementById('open-account-settings-modal');
+  if (accountSettingsLink) {
+    accountSettingsLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (accountSettingsModal && !accountSettingsModalOpen) {
+        accountSettingsModal.show();
+      }
+    })
   }
 }
 
@@ -492,6 +515,7 @@ async function renderApp() {
   await loadComponent('footer', 'HTMLComponents/footer.html');
   await renderPage();
   
+  initAccountSettings();
   setupModalDelegation();
 
   document.addEventListener('hidden.bs.modal', () => {
@@ -504,9 +528,11 @@ async function renderApp() {
 function setupModalDelegation() {
   const loginModalEl = document.getElementById('loginModal');
   const signupModalEl = document.getElementById('signupModal');
+  const accountSettiingModalEl = document.getElementById('accountSettingsModal');
 
   const loginModal = loginModalEl ? new bootstrap.Modal(loginModalEl) : null;
   const signupModal = signupModalEl ? new bootstrap.Modal(signupModalEl) : null;
+  const accountSettingModal = accountSettiingModalEl ? new bootstrap.Modal(accountSettiingModalEl) : null;
 
   document.body.addEventListener('click', (e) => {
     if (e.target.closest('.openLoginModal')) {
@@ -516,6 +542,10 @@ function setupModalDelegation() {
     if (e.target.closest('.openSignupModal')) {
       e.preventDefault();
       signupModal?.show();
+    }
+    if (e.target.closest('.open-account-settings-modal')) {
+      e.preventDefault();
+      accountSettingModal?.show();
     }
   });
 }

@@ -59,3 +59,56 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="accountSettingsModal" tabindex="-1" aria-labelledby="accountSettingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="accountSettingsModalLabel">Account Settings</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Change Username -->
+        <div class="mb-4">
+          <label for="newUsername" class="form-label">Change Username</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="newUsername" placeholder="Enter new username">
+            <button class="btn btn-outline-light" id="changeUsernameBtn">Change</button>
+          </div>
+        </div>
+
+        <!-- Change Password -->
+        <div class="mb-4">
+          <label class="form-label">Change Password</label>
+          <input type="password" class="form-control mb-2" id="currentPassword" placeholder="Current password">
+          <input type="password" class="form-control mb-2" id="newPassword" placeholder="New password">
+          <input type="password" class="form-control mb-2" id="confirmNewPassword" placeholder="Confirm new password">
+          <button class="btn btn-outline-light mt-2" id="changePasswordBtn">Change Password</button>
+        </div>
+
+        <!-- Email Verification -->
+        <div class="mb-4 d-flex align-items-center justify-content-between">
+          <span>Email Status: <strong id="emailStatus">Unverified</strong></span>
+          <button class="btn btn-outline-info btn-sm" id="verifyEmailBtn">Send Verification Email</button>
+        </div>
+
+        <!-- 2FA Enable -->
+        <div class="mb-4">
+          <label class="form-label">Two-Factor Authentication (2FA)</label>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="enable2FA">
+            <label class="form-check-label" for="enable2FA">Enable 2FA</label>
+          </div>
+        </div>
+
+        <!-- Delete Account -->
+        <div class="mt-5">
+          <label class="form-label text-danger">Danger Zone</label>
+          <p class="small text-muted">Once you delete your account, there is no going back. Please be certain.</p>
+          <button class="btn btn-danger" id="deleteAccountBtn">Delete Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

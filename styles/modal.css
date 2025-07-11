@@ -64,7 +64,7 @@
   z-index: 1040 !important;
 }
 
-#quizHelpModal .modal-content {
+#quizHelpModal #accountSettingsModal .modal-content {
   max-width: none !important; /* Remove max-width limit */
   width: 100%;                /* Fill dialog width */
   background: linear-gradient(145deg, #0a0a23, #121243); /* Your styling */
@@ -75,7 +75,23 @@
   color: white; /* ensure text visible */
 }
 
-#quizHelpModal .modal-dialog {
+#quizHelpModal #accountSettingsModal .modal-dialog {
+  max-width: 800px !important;
+  width: 90% !important;
+}
+ 
+#accountSettingsModal .modal-content {
+  max-width: none !important; /* Remove max-width limit */
+  width: 100%;                /* Fill dialog width */
+  background: linear-gradient(145deg, #0a0a23, #121243); /* Your styling */
+  border: 1px solid #2f2f6d;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+  padding: 20px;
+  color: white; /* ensure text visible */
+}
+
+#accountSettingsModal .modal-dialog {
   max-width: 800px !important;
   width: 90% !important;
 }
