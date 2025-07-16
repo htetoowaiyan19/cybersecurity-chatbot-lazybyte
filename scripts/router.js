@@ -2,8 +2,10 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 import { setActiveNavLink } from './active-link.js';
 import { loadQuizModals } from './modalLoader.js';
 import { initAccountSettings } from './account_settings.js';
-import { setLanguage, getLanguage, t } from './lang.js';
+import { initLanguage, applyTranslations } from './lang.js';
+import { BannerSlider } from './banner.js';
 
+let bannerSlider = null;
 
 const supabase = createClient(
   'https://edlavribkdaozwinzdpa.supabase.co',
@@ -78,6 +80,8 @@ async function loadComponent(id, path) {
     const res = await fetch(path);
     const html = await res.text();
     document.getElementById(id).innerHTML = html;
+
+    applyTranslations();
   } catch (err) {
     document.getElementById(id).innerHTML = `<div class="text-center text-danger mt-5">Failed to load ${path}</div>`;
   }
@@ -172,6 +176,8 @@ async function renderNavbar() {
     : await fetch('HTMLComponents/navbar_loggedout.html').then(res => res.text());
 
   document.getElementById('navbar').innerHTML = navbarHTML;
+
+  applyTranslations();
 
   if (session) {
     const name = session.user.user_metadata?.name || 'User';
@@ -515,11 +521,17 @@ async function renderApp() {
   await renderNavbar();
   await loadComponent('modal-container', 'HTMLComponents/auth_models.html');
   await loadComponent('footer', 'HTMLComponents/footer.html');
+  await initLanguage();
   await renderPage();
-  
+
+  const bannerContainer = document.getElementById('banner-image-container');
+  if (bannerContainer) {
+    const slider = new BannerSlider('banner-image-container', 'assets/loginBanners/loginBanners.json');
+    slider.loadBanners();
+  }
+
   initAccountSettings();
   setupModalDelegation();
-  
 
   document.addEventListener('hidden.bs.modal', () => {
     document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
@@ -553,19 +565,5 @@ function setupModalDelegation() {
   });
 }
 
-
 window.addEventListener('DOMContentLoaded', renderApp);
 window.addEventListener('hashchange', renderPage);
-
-
-document.addEventListener('DOMContentLoaded', async () => {
-  await setLanguage(getLanguage());
-
-  const langSelect = document.getElementById('languageSelect');
-  if (langSelect) {
-    langSelect.value = getLanguage(); // keep selected option visible
-    langSelect.addEventListener('change', async (e) => {
-      await setLanguage(e.target.value);
-    });
-  }
-});

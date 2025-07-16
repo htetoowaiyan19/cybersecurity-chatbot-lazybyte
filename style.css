@@ -1,6 +1,7 @@
 /* main.css */
 @import url("./styles/global.css");
 @import url("./styles/navbar.css");
+@import url("./styles/banner.css");
 @import url("./styles/hero.css");
 @import url("./styles/features.css");
 @import url("./styles/footer.css");
