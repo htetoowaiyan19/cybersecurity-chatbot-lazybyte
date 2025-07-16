@@ -2,6 +2,8 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 import { setActiveNavLink } from './active-link.js';
 import { loadQuizModals } from './modalLoader.js';
 import { initAccountSettings } from './account_settings.js';
+import { setLanguage, getLanguage, t } from './lang.js';
+
 
 const supabase = createClient(
   'https://edlavribkdaozwinzdpa.supabase.co',
@@ -517,6 +519,7 @@ async function renderApp() {
   
   initAccountSettings();
   setupModalDelegation();
+  
 
   document.addEventListener('hidden.bs.modal', () => {
     document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
@@ -553,3 +556,16 @@ function setupModalDelegation() {
 
 window.addEventListener('DOMContentLoaded', renderApp);
 window.addEventListener('hashchange', renderPage);
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await setLanguage(getLanguage());
+
+  const langSelect = document.getElementById('languageSelect');
+  if (langSelect) {
+    langSelect.value = getLanguage(); // keep selected option visible
+    langSelect.addEventListener('change', async (e) => {
+      await setLanguage(e.target.value);
+    });
+  }
+});
