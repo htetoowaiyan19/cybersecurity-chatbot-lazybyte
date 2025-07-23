@@ -1,11 +1,11 @@
 /* Main Section Styling */
 .info-section {
-  background: #000033;
+  background: transparent;
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 4rem auto;
   border-radius: 20px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 30px rgba(16, 87, 174, 0.05);
 }
 
 /* Section Title */
@@ -63,14 +63,14 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: white;
-  background: #1a1a1a;
+  background: #0d6efd;
   cursor: pointer;
   position: relative;
   transition: background 0.3s ease;
 }
 
 .info-question:hover {
-  background: #000033;
+  background: #013c94;
 }
 
 /* + Icon */
@@ -90,7 +90,7 @@
   max-height: 0;
   overflow: hidden;
   padding: 0 1.5rem;
-  background: #000033;
+  background: #1674c7;
   transition: max-height 0.4s ease, padding 0.3s;
 }
 

@@ -28,12 +28,17 @@ export class BannerSlider {
   createTrack() {
     this.track = document.createElement('div');
     this.track.className = 'banner-track';
+
     this.bannerImages.forEach(src => {
       const img = document.createElement('img');
       img.src = src;
       img.className = 'banner-slide';
       this.track.appendChild(img);
     });
+
+    // Set banner-track width dynamically: number_of_slides * 100%
+    this.track.style.width = `${this.bannerImages.length * 100}%`;
+
     this.container.innerHTML = '';
     this.container.appendChild(this.track);
   }

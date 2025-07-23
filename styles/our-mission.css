@@ -1,6 +1,6 @@
 /* Mission-Vision-Section */
 .mission-vision-section {
-  background: #000033;
+  background: transparent;
   color: #fff;
   padding: 80px 20px;
   text-align: center;
@@ -128,7 +128,7 @@
 
 /* Users Community Staff Shareholders */
 .core-groups-section {
-  background-color: #000033;
+  background: transparent;
   padding: 60px 20px;
   font-family: 'Segoe UI', sans-serif;
 }

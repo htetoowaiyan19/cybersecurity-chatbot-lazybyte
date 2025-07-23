@@ -1,10 +1,9 @@
 .hero-section {
-  background: linear-gradient(135deg);
-  color: #ffffff;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
-  padding: 80px 20px;
+  background: linear-gradient(135deg);
+  color: #fff;
 }
 
 .section-container {
@@ -206,8 +205,6 @@
   font-size: 0.9rem;
   color: #aaa;
 }
-
-
 
 #image-container {
   width: 300px;

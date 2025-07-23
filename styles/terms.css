@@ -1,23 +1,21 @@
-
 /* Main wrapper for terms */
-/* Main Wrapper for Terms Page */
 .terms-wrapper {
   max-width: 100%;
   width: 100%;
   padding: 40px 10vw;
   box-sizing: border-box;
-  background: white;
+  background: transparent;
   min-height: 100vh;
   font-family: "Segoe UI", sans-serif;
-  color: #000033;
+  color: #cbd5e1; /* light blue-gray text for readability */
 }
 
 /* Page Title */
 .terms-title {
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: #38bdf8; /* brighter blue */
   margin-bottom: 1rem;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #1e40af; /* darker blue border */
   padding-bottom: 0.5rem;
   text-align: center;
 }
@@ -25,19 +23,21 @@
 /* Section Heading (Main Sections like 1, 2, 3) */
 .terms-heading {
   font-size: 1.5rem;
-  color: #205ba8;
+  color: #60a5fa; /* soft blue */
   margin-top: 2rem;
 }
 .terms-subheading {
   font-size: 1rem;
-  color: #0861a0;
+  color: #3b82f6; /* medium blue */
   margin-top: 1.5rem;
 }
+
 /* Paragraphs */
 .terms-paragraph {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
+  color: #e0e7ff; /* very light blue for paragraph */
 }
 
 /* List Items */
@@ -46,18 +46,19 @@
   line-height: 1.6;
   margin-left: 1.5rem;
   list-style-type: disc;
+  color: #cbd5e1;
 }
 
 /* Links */
 .terms-link {
-  color: #1a73e8;
+  color: #60a5fa;
   text-decoration: none;
 }
 
 .terms-link:hover {
   text-decoration: underline;
+  color: #3b82f6;
 }
-
 
 /* Table content */
 .data-law-table {
@@ -66,40 +67,42 @@
   margin: 30px 0;
   font-size: 1rem;
   text-align: left;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #1e293b; /* dark slate blue */
+  border: 1px solid #334155;
+  color: #cbd5e1;
 }
 
 .data-law-table th,
 .data-law-table td {
-  border: 1px solid #ccc;
+  border: 1px solid #334155;
   padding: 12px 16px;
 }
 
 .data-law-table th {
-  background-color: #f2f2f2;
-  color: #1a1a1a;
+  background-color: #2563eb; /* bright blue */
+  color: white;
   font-weight: 600;
 }
 
 .data-law-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #1e293b;
 }
 
-/* Data protection law in Aisa */
+/* Data protection law in Asia */
 
 .data-protection-table {
   padding: 2rem;
-  background: #f8f9fa;
+  background: #1e293b; /* dark background */
   border-radius: 10px;
   max-width: 100%;
   overflow-x: auto;
+  color: #cbd5e1;
 }
 
 .data-protection-table h2 {
   text-align: center;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: #60a5fa;
 }
 
 .data-protection-table table {
@@ -107,23 +110,24 @@
   border-collapse: collapse;
   font-family: "Segoe UI", sans-serif;
   font-size: 0.95rem;
-  background: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background: #273549; /* slightly lighter dark blue */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #cbd5e1;
 }
 
 .data-protection-table th,
 .data-protection-table td {
-  border: 1px solid #dee2e6;
+  border: 1px solid #334155;
   padding: 0.75rem 1rem;
   text-align: left;
 }
 
 .data-protection-table th {
-  background-color: #1a73e8;
+  background-color: #2563eb;
   color: white;
   font-weight: 600;
 }
 
 .data-protection-table tbody tr:nth-child(even) {
-  background-color: #f1f3f5;
+  background-color: #1f2937;
 }

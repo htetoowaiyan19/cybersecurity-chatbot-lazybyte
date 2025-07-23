@@ -64,9 +64,9 @@ const routes = {
   '#login': () => 'pages/login/',
   '#signup': () => 'pages/signup/',
   '#contact': () => 'pages/contact/',
-  '#Who-we-are': () => 'pages/Who-we-are',
-  '#What-we-Do': ()=> 'pages/What-we-Do',
-  '#Our-mission': ()=>'pages/Our-mission',
+  '#who-we-are': () => 'pages/who-we-are',
+  '#what-we-Do': ()=> 'pages/what-we-Do',
+  '#our-missions': ()=>'pages/our-missions',
   '#FAQ':() =>'pages/FAQ',
   '#Scan-awareness':()=>'pages/Scan-awareness',
   '#Cyber-awareness':()=>'pages/Cyber-awareness',
@@ -518,6 +518,7 @@ async function renderPage() {
 
 async function renderApp() {
   await checkSession();
+  await initBackground();
   await renderNavbar();
   await loadComponent('modal-container', 'HTMLComponents/auth_models.html');
   await loadComponent('footer', 'HTMLComponents/footer.html');
@@ -563,6 +564,19 @@ function setupModalDelegation() {
       accountSettingModal?.show();
     }
   });
+}
+
+function initBackground() {
+  const bg = document.getElementById('background-effects');
+  if (!bg) return;
+  for (let i = 0; i < 60; i++) {
+    const star = document.createElement('div');
+    star.className = 'background-star';
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.animationDuration = `${1 + Math.random() * 2}s`;
+    bg.appendChild(star);
+  }
 }
 
 window.addEventListener('DOMContentLoaded', renderApp);

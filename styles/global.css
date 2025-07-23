@@ -12,7 +12,6 @@ html, body {
 }
 
 body {
-  background-color: #000033;
   color: white;
   font-family: 'Segoe UI', sans-serif;
   display: flex;
@@ -38,28 +37,25 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Scrollbar Styling - Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000033; /* same as body background */
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #00cccc;
   border-radius: 8px;
-  border: 2px solid #000033;
+  border: 2px solid transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #00ffff;
 }
 
-/* Scrollbar Styling - Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #3fa9f5 #000033; /* thumb and track */
+  scrollbar-color: #3fa9f5 transparent;
 }
